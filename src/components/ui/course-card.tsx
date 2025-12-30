@@ -36,7 +36,7 @@ export function CourseCard({
   return (
     <Card
       className={cn(
-        'overflow-hidden transition-all hover:shadow-md cursor-pointer animate-fade-in',
+        'overflow-hidden transition-all hover:border-foreground/20 cursor-pointer animate-fade-in',
         className
       )}
       onClick={onClick}
@@ -46,11 +46,11 @@ export function CourseCard({
           <img
             src={thumbnail}
             alt={title}
-            className="h-full w-full object-cover transition-transform hover:scale-105"
+            className="h-full w-full object-cover"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <BookOpen className="h-12 w-12 text-muted-foreground/50" />
+            <BookOpen className="h-10 w-10 text-muted-foreground/40" />
           </div>
         )}
       </div>

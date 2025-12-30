@@ -17,25 +17,25 @@ interface StatCardProps {
 export function StatCard({ title, value, description, icon: Icon, trend, className }: StatCardProps) {
   return (
     <Card className={cn('animate-fade-in', className)}>
-      <CardContent className="p-6">
+      <CardContent className="p-5">
         <div className="flex items-center justify-between">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-            <Icon className="h-6 w-6 text-primary" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-muted">
+            <Icon className="h-5 w-5 text-foreground" />
           </div>
           {trend && (
             <span
               className={cn(
-                'text-sm font-medium',
-                trend.isPositive ? 'text-accent' : 'text-destructive'
+                'text-xs font-medium',
+                trend.isPositive ? 'text-foreground' : 'text-destructive'
               )}
             >
               {trend.isPositive ? '+' : '-'}{Math.abs(trend.value)}%
             </span>
           )}
         </div>
-        <div className="mt-4">
-          <h3 className="text-2xl font-bold">{value}</h3>
+        <div className="mt-3">
           <p className="text-sm text-muted-foreground">{title}</p>
+          <h3 className="text-xl font-semibold mt-0.5">{value}</h3>
           {description && (
             <p className="mt-1 text-xs text-muted-foreground">{description}</p>
           )}

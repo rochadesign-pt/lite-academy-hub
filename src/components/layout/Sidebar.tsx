@@ -89,13 +89,13 @@ export function Sidebar({ open, onClose }: SidebarProps) {
                 to={item.href}
                 onClick={onClose}
                 className={cn(
-                  'flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors',
+                  'flex items-center gap-3 rounded-sm px-3 py-2 text-sm transition-colors',
                   isActive
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground'
+                    ? 'bg-primary text-primary-foreground font-medium'
+                    : 'text-sidebar-foreground hover:bg-muted'
                 )}
               >
-                <item.icon className="h-5 w-5" />
+                <item.icon className="h-4 w-4" />
                 {item.title}
               </Link>
             );
@@ -103,8 +103,8 @@ export function Sidebar({ open, onClose }: SidebarProps) {
         </nav>
 
         <div className="border-t p-4">
-          <div className="rounded-lg bg-sidebar-accent p-4">
-            <p className="text-sm font-medium text-sidebar-accent-foreground">
+          <div className="rounded-sm bg-muted p-4">
+            <p className="text-sm font-medium">
               Precisa de ajuda?
             </p>
             <p className="mt-1 text-xs text-muted-foreground">

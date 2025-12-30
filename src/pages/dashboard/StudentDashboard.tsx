@@ -46,15 +46,15 @@ export function StudentDashboard() {
     <div className="space-y-6 animate-fade-in">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-2xl font-bold md:text-3xl">
-            Olá, {profile?.full_name?.split(' ')[0]}! 👋
+          <h1 className="text-xl font-semibold md:text-2xl">
+            Olá, {profile?.full_name?.split(' ')[0]}!
           </h1>
-          <p className="text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Continue a sua jornada de aprendizagem
           </p>
         </div>
         <Button onClick={() => navigate('/explore')}>
-          <Search className="mr-2 h-4 w-4" />
+          <Search className="h-4 w-4" />
           Explorar Cursos
         </Button>
       </div>
@@ -80,16 +80,16 @@ export function StudentDashboard() {
 
       {lastCourse && (
         <Card className="overflow-hidden">
-          <CardHeader className="bg-primary/5">
-            <CardTitle className="flex items-center gap-2">
-              <Play className="h-5 w-5 text-primary" />
+          <CardHeader className="border-b bg-muted/50 py-4">
+            <CardTitle className="flex items-center gap-2 text-base">
+              <Play className="h-4 w-4" />
               Continuar a Aprender
             </CardTitle>
             <CardDescription>
               Retome de onde parou
             </CardDescription>
           </CardHeader>
-          <CardContent className="p-6">
+          <CardContent className="p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex-1">
                 <h3 className="font-semibold text-lg">{lastCourse.title}</h3>
@@ -115,8 +115,8 @@ export function StudentDashboard() {
 
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-semibold">Os Meus Cursos</h2>
-          <Button variant="ghost" onClick={() => navigate('/my-courses')}>
+          <h2 className="text-base font-semibold">Os Meus Cursos</h2>
+          <Button variant="ghost" size="sm" onClick={() => navigate('/my-courses')}>
             Ver todos
           </Button>
         </div>
