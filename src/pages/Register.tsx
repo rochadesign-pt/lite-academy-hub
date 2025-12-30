@@ -3,7 +3,7 @@ import { useNavigate, Navigate, Link } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Eye, EyeSlash, SpinnerGap, Student, GraduationCap } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -43,7 +43,7 @@ export default function Register() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-muted/40">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <SpinnerGap className="h-8 w-8 animate-spin text-primary" weight="bold" />
       </div>
     );
   }
@@ -155,7 +155,7 @@ export default function Register() {
                         className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
                         onClick={() => setShowPassword(!showPassword)}
                       >
-                        {showPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" /> : <Eye className="h-4 w-4 text-muted-foreground" />}
+                        {showPassword ? <EyeSlash className="h-4 w-4 text-muted-foreground" weight="regular" /> : <Eye className="h-4 w-4 text-muted-foreground" weight="regular" />}
                       </Button>
                     </div>
                     {registerForm.formState.errors.password && (
@@ -181,7 +181,7 @@ export default function Register() {
                         className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                       >
-                        {showConfirmPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" /> : <Eye className="h-4 w-4 text-muted-foreground" />}
+                        {showConfirmPassword ? <EyeSlash className="h-4 w-4 text-muted-foreground" weight="regular" /> : <Eye className="h-4 w-4 text-muted-foreground" weight="regular" />}
                       </Button>
                     </div>
                     {registerForm.formState.errors.confirmPassword && (
@@ -203,7 +203,7 @@ export default function Register() {
                           htmlFor="student"
                           className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
                         >
-                          <span className="text-2xl mb-2">📚</span>
+                          <Student className="h-6 w-6 mb-2" weight="regular" />
                           <span className="font-medium">Aluno</span>
                         </Label>
                       </div>
@@ -213,7 +213,7 @@ export default function Register() {
                           htmlFor="teacher"
                           className="flex flex-col items-center justify-between rounded-md border-2 border-muted bg-popover p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer"
                         >
-                          <span className="text-2xl mb-2">🎓</span>
+                          <GraduationCap className="h-6 w-6 mb-2" weight="regular" />
                           <span className="font-medium">Professor</span>
                         </Label>
                       </div>
@@ -222,7 +222,7 @@ export default function Register() {
 
                   {/* Register Button */}
                   <Button type="submit" className="w-full" disabled={isLoading}>
-                    {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                    {isLoading ? <SpinnerGap className="mr-2 h-4 w-4 animate-spin" weight="bold" /> : null}
                     Criar conta
                   </Button>
 

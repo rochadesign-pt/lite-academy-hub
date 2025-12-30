@@ -1,8 +1,8 @@
-import { LucideIcon } from 'lucide-react';
+import { Icon as PhosphorIcon } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 
 interface EmptyStateProps {
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   title: string;
   description: string;
   action?: {
@@ -15,7 +15,7 @@ export function EmptyState({ icon: Icon, title, description, action }: EmptyStat
   return (
     <div className="flex flex-col items-center justify-center rounded-lg border border-dashed p-8 text-center animate-fade-in">
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-muted">
-        <Icon className="h-8 w-8 text-muted-foreground" />
+        <Icon className="h-8 w-8 text-muted-foreground" weight="regular" />
       </div>
       <h3 className="mt-4 text-lg font-semibold">{title}</h3>
       <p className="mt-2 max-w-sm text-sm text-muted-foreground">{description}</p>

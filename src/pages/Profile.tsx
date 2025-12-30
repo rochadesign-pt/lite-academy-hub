@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { User, Mail, Globe, FileText, Camera, Loader2, Lock, Eye, EyeOff } from 'lucide-react';
+import { User, Envelope, Globe, FileText, Camera, SpinnerGap, Lock, Eye, EyeSlash } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,7 +10,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/lib/auth';
 import { supabase } from '@/integrations/supabase/client';
@@ -162,7 +161,7 @@ export default function Profile() {
               </Avatar>
               <div>
                 <Button type="button" variant="outline" size="sm" disabled>
-                  <Camera className="mr-2 h-4 w-4" />
+                  <Camera className="mr-2 h-4 w-4" weight="regular" />
                   Alterar foto
                 </Button>
                 <p className="text-xs text-muted-foreground mt-1">
@@ -175,7 +174,7 @@ export default function Profile() {
               <div className="space-y-2">
                 <Label htmlFor="full_name">Nome completo</Label>
                 <div className="relative">
-                  <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                   <Input
                     id="full_name"
                     placeholder="O seu nome"
@@ -193,7 +192,7 @@ export default function Profile() {
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Envelope className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                   <Input
                     id="email"
                     value={profile?.email || ''}
@@ -221,7 +220,7 @@ export default function Profile() {
               <div className="space-y-2">
                 <Label htmlFor="bio">Biografia</Label>
                 <div className="relative">
-                  <FileText className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <FileText className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                   <Textarea
                     id="bio"
                     placeholder="Conte um pouco sobre si..."
@@ -246,7 +245,7 @@ export default function Profile() {
                 }
               >
                 <SelectTrigger>
-                  <Globe className="mr-2 h-4 w-4" />
+                  <Globe className="mr-2 h-4 w-4" weight="regular" />
                   <SelectValue placeholder="Selecione um idioma" />
                 </SelectTrigger>
                 <SelectContent>
@@ -257,7 +256,7 @@ export default function Profile() {
             </div>
 
             <Button type="submit" disabled={isLoading}>
-              {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {isLoading ? <SpinnerGap className="mr-2 h-4 w-4 animate-spin" weight="bold" /> : null}
               Guardar Alterações
             </Button>
           </form>
@@ -276,7 +275,7 @@ export default function Profile() {
             <div className="space-y-2">
               <Label htmlFor="currentPassword">Password atual</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                 <Input
                   id="currentPassword"
                   type={showCurrentPassword ? 'text' : 'password'}
@@ -291,7 +290,7 @@ export default function Profile() {
                   className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
                   onClick={() => setShowCurrentPassword(!showCurrentPassword)}
                 >
-                  {showCurrentPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showCurrentPassword ? <EyeSlash className="h-4 w-4" weight="regular" /> : <Eye className="h-4 w-4" weight="regular" />}
                 </Button>
               </div>
               {passwordForm.formState.errors.currentPassword && (
@@ -304,7 +303,7 @@ export default function Profile() {
             <div className="space-y-2">
               <Label htmlFor="newPassword">Nova password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                 <Input
                   id="newPassword"
                   type={showNewPassword ? 'text' : 'password'}
@@ -319,7 +318,7 @@ export default function Profile() {
                   className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
                   onClick={() => setShowNewPassword(!showNewPassword)}
                 >
-                  {showNewPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showNewPassword ? <EyeSlash className="h-4 w-4" weight="regular" /> : <Eye className="h-4 w-4" weight="regular" />}
                 </Button>
               </div>
               {passwordForm.formState.errors.newPassword && (
@@ -332,7 +331,7 @@ export default function Profile() {
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirmar nova password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" weight="regular" />
                 <Input
                   id="confirmPassword"
                   type="password"
@@ -349,7 +348,7 @@ export default function Profile() {
             </div>
 
             <Button type="submit" disabled={isPasswordLoading}>
-              {isPasswordLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+              {isPasswordLoading ? <SpinnerGap className="mr-2 h-4 w-4 animate-spin" weight="bold" /> : null}
               Alterar Password
             </Button>
           </form>
