@@ -126,43 +126,42 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex">
-      {/* Left side - Gradient background with branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary/90 to-accent relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
-        <div className="relative z-10 flex flex-col justify-center items-start p-12 text-primary-foreground">
-          <Logo size="lg" className="mb-8" />
-          <h1 className="text-4xl font-bold mb-4">
-            Bem-vindo à LiTE Academy
-          </h1>
-          <p className="text-lg text-primary-foreground/80 max-w-md">
-            A plataforma de aprendizagem que transforma o seu potencial em conhecimento real.
-          </p>
-          <div className="mt-12 grid grid-cols-2 gap-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                <span className="text-xl">📚</span>
-              </div>
-              <span className="text-sm">Cursos interativos</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                <span className="text-xl">🎓</span>
-              </div>
-              <span className="text-sm">Certificados</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                <span className="text-xl">👥</span>
-              </div>
-              <span className="text-sm">Comunidade ativa</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
-                <span className="text-xl">📊</span>
-              </div>
-              <span className="text-sm">Progresso detalhado</span>
-            </div>
+    <div className="min-h-screen flex bg-muted/30">
+      {/* Left side - Dark image with branding */}
+      <div className="hidden lg:flex lg:w-1/2 bg-slate-900 relative overflow-hidden">
+        {/* Background image overlay */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-60"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80')`
+          }}
+        />
+        <div className="absolute inset-0 bg-slate-900/70" />
+        
+        {/* Content */}
+        <div className="relative z-10 flex flex-col h-full w-full p-10">
+          {/* Top - Logo and back link */}
+          <div className="flex items-center justify-between">
+            <Logo size="lg" className="text-white" />
+            <Button 
+              variant="ghost" 
+              className="text-white/80 hover:text-white hover:bg-white/10"
+              onClick={() => navigate('/')}
+            >
+              ← Voltar ao Website
+            </Button>
+          </div>
+          
+          {/* Bottom - Tagline */}
+          <div className="mt-auto text-white">
+            <h1 className="text-4xl font-bold leading-tight mb-4">
+              Aprenda Mais.<br />
+              Evolua Sempre.<br />
+              Cresça Connosco.
+            </h1>
+            <p className="text-white/70 max-w-md">
+              A plataforma de aprendizagem que transforma o seu potencial em conhecimento real.
+            </p>
           </div>
         </div>
       </div>
@@ -174,14 +173,14 @@ export default function Auth() {
             <Logo size="lg" />
           </div>
 
-          <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm animate-slide-up">
+          <Card className="border shadow-lg bg-card">
             <Tabs defaultValue="login" className="w-full">
               <CardHeader className="space-y-1 pb-4">
-                <TabsList className="grid w-full grid-cols-2 bg-muted/50">
-                  <TabsTrigger value="login" className="data-[state=active]:bg-background data-[state=active]:shadow-sm">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="login">
                     Entrar
                   </TabsTrigger>
-                  <TabsTrigger value="register" className="data-[state=active]:bg-background data-[state=active]:shadow-sm">
+                  <TabsTrigger value="register">
                     Criar Conta
                   </TabsTrigger>
                 </TabsList>
@@ -250,17 +249,17 @@ export default function Auth() {
                   )}
                 </div>
 
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-slate-900 hover:bg-slate-800 text-white" disabled={isLoading}>
                   {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
                   Entrar
                 </Button>
               </form>
 
-              <div className="relative my-4">
+              <div className="relative my-6">
                 <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border-t" />
+                  <span className="w-full border-t border-border" />
                 </div>
-                <div className="relative flex justify-center text-xs uppercase">
+                <div className="relative flex justify-center text-xs">
                   <span className="bg-card px-2 text-muted-foreground">Ou continue com</span>
                 </div>
               </div>
