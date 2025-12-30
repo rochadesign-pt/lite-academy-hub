@@ -1,4 +1,4 @@
-import { Bell, Menu, LogOut, User, Settings } from 'lucide-react';
+import { Bell, List, SignOut, User, Gear } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -45,7 +45,7 @@ export function Header({ onMenuClick, showMenu = true }: HeaderProps) {
             className="md:hidden mr-2"
             onClick={onMenuClick}
           >
-            <Menu className="h-5 w-5" />
+            <List className="h-5 w-5" weight="bold" />
           </Button>
         )}
 
@@ -53,7 +53,7 @@ export function Header({ onMenuClick, showMenu = true }: HeaderProps) {
 
         <div className="ml-auto flex items-center gap-2">
           <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5" />
+            <Bell className="h-5 w-5" weight="regular" />
             <span className="sr-only">Notificações</span>
           </Button>
 
@@ -77,16 +77,16 @@ export function Header({ onMenuClick, showMenu = true }: HeaderProps) {
               </div>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => navigate('/profile')}>
-                <User className="mr-2 h-4 w-4" />
+                <User className="mr-2 h-4 w-4" weight="regular" />
                 Perfil
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => navigate('/settings')}>
-                <Settings className="mr-2 h-4 w-4" />
+                <Gear className="mr-2 h-4 w-4" weight="regular" />
                 Definições
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleSignOut} className="text-destructive">
-                <LogOut className="mr-2 h-4 w-4" />
+                <SignOut className="mr-2 h-4 w-4" weight="regular" />
                 Terminar Sessão
               </DropdownMenuItem>
             </DropdownMenuContent>

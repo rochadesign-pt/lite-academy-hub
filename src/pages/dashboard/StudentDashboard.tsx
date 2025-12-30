@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Award, Clock, Search, Play } from 'lucide-react';
+import { Book, Trophy, Clock, MagnifyingGlass, Play } from '@phosphor-icons/react';
 import { StatCard } from '@/components/ui/stat-card';
 import { CourseCard } from '@/components/ui/course-card';
 import { Button } from '@/components/ui/button';
@@ -54,7 +54,7 @@ export function StudentDashboard() {
           </p>
         </div>
         <Button onClick={() => navigate('/explore')}>
-          <Search className="h-4 w-4" />
+          <MagnifyingGlass className="h-4 w-4" weight="bold" />
           Explorar Cursos
         </Button>
       </div>
@@ -63,12 +63,12 @@ export function StudentDashboard() {
         <StatCard
           title="Cursos em Progresso"
           value={activeCourses.length}
-          icon={BookOpen}
+          icon={Book}
         />
         <StatCard
           title="Cursos Concluídos"
           value={completedCourses.length}
-          icon={Award}
+          icon={Trophy}
         />
         <StatCard
           title="Horas de Estudo"
@@ -82,7 +82,7 @@ export function StudentDashboard() {
         <Card className="overflow-hidden">
           <CardHeader className="border-b bg-muted/50 py-4">
             <CardTitle className="flex items-center gap-2 text-base">
-              <Play className="h-4 w-4" />
+              <Play className="h-4 w-4" weight="fill" />
               Continuar a Aprender
             </CardTitle>
             <CardDescription>
@@ -105,7 +105,7 @@ export function StudentDashboard() {
                 </div>
               </div>
               <Button onClick={() => navigate(`/courses/${lastCourse.id}`)} className="sm:w-auto">
-                <Play className="mr-2 h-4 w-4" />
+                <Play className="mr-2 h-4 w-4" weight="fill" />
                 Continuar
               </Button>
             </div>
@@ -123,7 +123,7 @@ export function StudentDashboard() {
 
         {mockEnrolledCourses.length === 0 ? (
           <EmptyState
-            icon={BookOpen}
+            icon={Book}
             title="Ainda não está inscrito em nenhum curso"
             description="Explore os cursos disponíveis e comece a sua jornada de aprendizagem."
             action={{

@@ -1,4 +1,4 @@
-import { BookOpen, Users, Clock } from 'lucide-react';
+import { Book, Users, Clock } from '@phosphor-icons/react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
@@ -50,7 +50,7 @@ export function CourseCard({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
-            <BookOpen className="h-10 w-10 text-muted-foreground/40" />
+            <Book className="h-10 w-10 text-muted-foreground/40" weight="regular" />
           </div>
         )}
       </div>
@@ -81,13 +81,13 @@ export function CourseCard({
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             {studentsCount !== undefined && (
               <div className="flex items-center gap-1">
-                <Users className="h-4 w-4" />
+                <Users className="h-4 w-4" weight="regular" />
                 <span>{studentsCount} alunos</span>
               </div>
             )}
             {lessonsCount !== undefined && (
               <div className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
+                <Clock className="h-4 w-4" weight="regular" />
                 <span>{lessonsCount} aulas</span>
               </div>
             )}

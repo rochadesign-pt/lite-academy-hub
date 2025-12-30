@@ -1,4 +1,4 @@
-import { LucideIcon } from 'lucide-react';
+import { Icon as PhosphorIcon } from '@phosphor-icons/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 
@@ -6,7 +6,7 @@ interface StatCardProps {
   title: string;
   value: string | number;
   description?: string;
-  icon: LucideIcon;
+  icon: PhosphorIcon;
   trend?: {
     value: number;
     isPositive: boolean;
@@ -20,7 +20,7 @@ export function StatCard({ title, value, description, icon: Icon, trend, classNa
       <CardContent className="p-5">
         <div className="flex items-center justify-between">
           <div className="flex h-10 w-10 items-center justify-center rounded-sm bg-muted">
-            <Icon className="h-5 w-5 text-foreground" />
+            <Icon className="h-5 w-5 text-foreground" weight="regular" />
           </div>
           {trend && (
             <span

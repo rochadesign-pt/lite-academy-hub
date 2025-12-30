@@ -3,7 +3,7 @@ import { useNavigate, Navigate, Link } from 'react-router-dom';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { Eye, EyeSlash, SpinnerGap } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -36,7 +36,7 @@ export default function Auth() {
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-muted/40">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        <SpinnerGap className="h-8 w-8 animate-spin text-primary" weight="bold" />
       </div>
     );
   }
@@ -140,7 +140,7 @@ export default function Auth() {
                         className="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
                         onClick={() => setShowPassword(!showPassword)}
                       >
-                        {showPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" /> : <Eye className="h-4 w-4 text-muted-foreground" />}
+                        {showPassword ? <EyeSlash className="h-4 w-4 text-muted-foreground" weight="regular" /> : <Eye className="h-4 w-4 text-muted-foreground" weight="regular" />}
                       </Button>
                     </div>
                     {loginForm.formState.errors.password && (
@@ -158,7 +158,7 @@ export default function Auth() {
 
                   {/* Login Button */}
                   <Button type="submit" className="w-full" disabled={isLoading}>
-                    {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
+                    {isLoading ? <SpinnerGap className="mr-2 h-4 w-4 animate-spin" weight="bold" /> : null}
                     Entrar
                   </Button>
 
