@@ -126,26 +126,75 @@ export default function Auth() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-muted/50 p-4">
-      <div className="mb-8">
-        <Logo size="lg" />
+    <div className="min-h-screen flex">
+      {/* Left side - Gradient background with branding */}
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-primary via-primary/90 to-accent relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-30" />
+        <div className="relative z-10 flex flex-col justify-center items-start p-12 text-primary-foreground">
+          <Logo size="lg" className="mb-8" />
+          <h1 className="text-4xl font-bold mb-4">
+            Bem-vindo à LiTE Academy
+          </h1>
+          <p className="text-lg text-primary-foreground/80 max-w-md">
+            A plataforma de aprendizagem que transforma o seu potencial em conhecimento real.
+          </p>
+          <div className="mt-12 grid grid-cols-2 gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+                <span className="text-xl">📚</span>
+              </div>
+              <span className="text-sm">Cursos interativos</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+                <span className="text-xl">🎓</span>
+              </div>
+              <span className="text-sm">Certificados</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+                <span className="text-xl">👥</span>
+              </div>
+              <span className="text-sm">Comunidade ativa</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary-foreground/10 flex items-center justify-center">
+                <span className="text-xl">📊</span>
+              </div>
+              <span className="text-sm">Progresso detalhado</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <Card className="w-full max-w-md animate-slide-up">
-        <Tabs defaultValue="login" className="w-full">
-          <CardHeader className="space-y-1 pb-2">
-            <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="login">Entrar</TabsTrigger>
-              <TabsTrigger value="register">Criar Conta</TabsTrigger>
-            </TabsList>
-          </CardHeader>
+      {/* Right side - Form */}
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center bg-background p-6 sm:p-8">
+        <div className="w-full max-w-md">
+          <div className="lg:hidden mb-8 text-center">
+            <Logo size="lg" />
+          </div>
 
-          <CardContent className="pt-4">
-            <TabsContent value="login" className="space-y-4 mt-0">
-              <CardTitle className="text-xl">Bem-vindo de volta</CardTitle>
-              <CardDescription>
-                Entre na sua conta para continuar a aprender
-              </CardDescription>
+          <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm animate-slide-up">
+            <Tabs defaultValue="login" className="w-full">
+              <CardHeader className="space-y-1 pb-4">
+                <TabsList className="grid w-full grid-cols-2 bg-muted/50">
+                  <TabsTrigger value="login" className="data-[state=active]:bg-background data-[state=active]:shadow-sm">
+                    Entrar
+                  </TabsTrigger>
+                  <TabsTrigger value="register" className="data-[state=active]:bg-background data-[state=active]:shadow-sm">
+                    Criar Conta
+                  </TabsTrigger>
+                </TabsList>
+              </CardHeader>
+
+              <CardContent className="pt-2">
+                <TabsContent value="login" className="space-y-4 mt-0">
+                  <div className="space-y-1">
+                    <CardTitle className="text-2xl font-semibold">Bem-vindo de volta</CardTitle>
+                    <CardDescription className="text-muted-foreground">
+                      Entre na sua conta para continuar a aprender
+                    </CardDescription>
+                  </div>
 
               <form onSubmit={loginForm.handleSubmit(handleLogin)} className="space-y-4 mt-4">
                 <div className="space-y-2">
@@ -246,10 +295,12 @@ export default function Auth() {
             </TabsContent>
 
             <TabsContent value="register" className="space-y-4 mt-0">
-              <CardTitle className="text-xl">Criar conta</CardTitle>
-              <CardDescription>
-                Junte-se à LiTE Academy e comece a aprender
-              </CardDescription>
+              <div className="space-y-1">
+                <CardTitle className="text-2xl font-semibold">Criar conta</CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Junte-se à LiTE Academy e comece a aprender
+                </CardDescription>
+              </div>
 
               <form onSubmit={registerForm.handleSubmit(handleRegister)} className="space-y-4 mt-4">
                 <div className="space-y-2">
@@ -410,16 +461,18 @@ export default function Auth() {
                 Google
               </Button>
             </TabsContent>
-          </CardContent>
-        </Tabs>
-      </Card>
+              </CardContent>
+            </Tabs>
+          </Card>
 
-      <p className="mt-6 text-center text-sm text-muted-foreground">
-        Ao criar uma conta, aceita os nossos{' '}
-        <a href="#" className="underline hover:text-primary">Termos de Serviço</a>
-        {' '}e{' '}
-        <a href="#" className="underline hover:text-primary">Política de Privacidade</a>.
-      </p>
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Ao criar uma conta, aceita os nossos{' '}
+            <a href="#" className="underline hover:text-primary transition-colors">Termos de Serviço</a>
+            {' '}e{' '}
+            <a href="#" className="underline hover:text-primary transition-colors">Política de Privacidade</a>.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
