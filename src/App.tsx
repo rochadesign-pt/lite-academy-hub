@@ -13,6 +13,8 @@ import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import CreateCourse from "./pages/CreateCourse";
+import MyCourses from "./pages/MyCourses";
+import ExploreCourses from "./pages/ExploreCourses";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,11 +35,11 @@ const App = () => (
             <Route element={<DashboardLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/my-courses" element={<Dashboard />} />
+              <Route path="/my-courses" element={<MyCourses />} />
               <Route path="/create-course" element={<CreateCourse />} />
-              <Route path="/explore" element={<Dashboard />} />
+              <Route path="/explore" element={<ExploreCourses />} />
               <Route path="/users" element={<Dashboard />} />
-              <Route path="/courses" element={<Dashboard />} />
+              <Route path="/courses" element={<ExploreCourses />} />
               <Route path="/reports" element={<Dashboard />} />
               <Route path="/messages" element={<Dashboard />} />
               <Route path="/certificates" element={<Dashboard />} />
