@@ -123,7 +123,14 @@ export function QuizBuilder({
                   className="space-y-2"
                 >
                   {question.options.map((option, oIndex) => (
-                    <div key={oIndex} className="flex items-center gap-3">
+                    <div
+                      key={oIndex}
+                      className={`flex items-center gap-3 p-2 rounded-md border transition-colors ${
+                        question.correct_option === oIndex
+                          ? 'border-primary bg-primary/10'
+                          : 'border-transparent'
+                      }`}
+                    >
                       <RadioGroupItem
                         value={String(oIndex)}
                         id={`q${qIndex}-o${oIndex}`}
@@ -136,6 +143,11 @@ export function QuizBuilder({
                         }
                         className="flex-1"
                       />
+                      {question.correct_option === oIndex && (
+                        <span className="text-xs font-medium text-primary whitespace-nowrap">
+                          ✓ Correta
+                        </span>
+                      )}
                     </div>
                   ))}
                 </RadioGroup>
