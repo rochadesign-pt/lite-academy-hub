@@ -64,7 +64,10 @@ export default function CreateCourse() {
   const handleSubmit = async (e: React.FormEvent, status: 'draft' | 'published') => {
     e.preventDefault();
 
-    if (!user) {
+    // Get fresh session to ensure we have the current user
+    const { data: { session } } = await supabase.auth.getSession();
+    
+    if (!session?.user) {
       toast({
         title: 'Erro',
         description: 'Precisa estar autenticado para criar um curso.',
@@ -85,13 +88,13 @@ export default function CreateCourse() {
     setIsSubmitting(true);
 
     try {
-      // Create the course
+      // Create the course with the authenticated user's ID
       const { data: course, error: courseError } = await supabase
         .from('courses')
         .insert({
           title: formData.title,
           description: formData.description,
-          teacher_id: user.id,
+          teacher_id: session.user.id,
           status,
         })
         .select()
